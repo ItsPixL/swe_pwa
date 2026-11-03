@@ -524,7 +524,9 @@ code style.css
   flex-direction: column;
   width: 17rem;
   background: #fff;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.19),
+    0 6px 6px rgba(0, 0, 0, 0.23);
   border-radius: 10px;
   margin: auto;
   overflow: hidden;
@@ -724,7 +726,7 @@ self.addEventListener("install", (installEvt) => {
       .then(self.skipWaiting())
       .catch((e) => {
         console.log(e);
-      })
+      }),
   );
 });
 
@@ -739,10 +741,10 @@ self.addEventListener("activate", function (evt) {
               console.log("Removed old cache from", key);
               return caches.delete(key);
             }
-          })
+          }),
         );
       })
-      .then(() => self.clients.claim())
+      .then(() => self.clients.claim()),
   );
 });
 
@@ -752,7 +754,7 @@ self.addEventListener("fetch", function (evt) {
       return caches.open(CATALOGUE_ASSETS).then((cache) => {
         return cache.match(evt.request);
       });
-    })
+    }),
   );
 });
 ```
@@ -789,10 +791,8 @@ The following code snippets will help you create a simple form on the add.html p
    - The input form must be styled to be consistent with the rest of the website
    - A message confirming submission is returned to the user
 2. SQL schema specifications:
-
    - A new table called contact_list
    - 3 columns
-
      - id is the primary key and should increment automatically
      - email must be unique
      - name
